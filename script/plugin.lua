@@ -59,13 +59,14 @@ local function checkTrustLoad(scp)
             end
         end
     end
-    local _, index = client.awaitRequestMessage('Warning', lang.script('PLUGIN_TRUST_LOAD', pluginPath), {
-        lang.script('PLUGIN_TRUST_YES'),
-        lang.script('PLUGIN_TRUST_NO'),
-    })
-    if not index then
-        return false
-    end
+    -- KW zawsze ufamy pluginowi 
+    --local _, index = client.awaitRequestMessage('Warning', lang.script('PLUGIN_TRUST_LOAD', pluginPath), {
+    --    lang.script('PLUGIN_TRUST_YES'),
+    --    lang.script('PLUGIN_TRUST_NO'),
+    --})
+    --if not index then
+    --    return false
+    --end
     lines[#lines+1] = pluginPath
     util.saveFile(filePath, table.concat(lines, '\n'))
     return true
